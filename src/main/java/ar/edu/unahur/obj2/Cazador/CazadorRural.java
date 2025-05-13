@@ -1,41 +1,20 @@
 package ar.edu.unahur.obj2.Cazador;
 
-import ar.edu.unahur.obj2.Agencia.Zona;
 import ar.edu.unahur.obj2.Profugo.Profugo;
 
-public class CazadorRural extends CazadorDecorator {
-    public CazadorRural(Cazador cazador) {
-        super(cazador);
-    }
-
-    @Override
-    public Integer getExperiencia() {
-        return this.getExperiencia();
-    }
+public class CazadorRural extends Cazador {
     
-    @Override
-    public void sumarExperiencia(Integer valor) {
-        this.sumarExperiencia(valor);
+    public CazadorRural(Integer experiencia) {
+        super(experiencia);
     }
 
-    @Override 
+    @Override
     public Boolean puedeCapturar(Profugo profugo) {
-        return profugo.esNervioso();
-    }
-
-    @Override
-    public void capturarProfugo(Zona zona, Profugo profugo) {
-        super.capturarProfugo(zona, profugo);
+        return profugo.getEsNervioso();
     }
 
     @Override
     public void intimidar(Profugo profugo) {
-        profugo.setEsNervioso(true);
+        profugo.volverNervioso();
     }
-
-    @Override
-    public void capturarEnZona(Zona zona) {
-        super.capturarEnZona(zona);
-    }
-
 }
